@@ -1,43 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu
     const mobileTrigger = document.querySelector('.nav-mobile-trigger');
-    const navList = document.querySelector('.nav-list');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const body = document.body;
+    const overlayLinks = document.querySelectorAll('.nav-overlay a');
 
-    // Check if elements exist before adding listeners
-    if (mobileTrigger && navList) {
+    if (mobileTrigger && navOverlay) {
+        // Toggle Menu
         mobileTrigger.addEventListener('click', () => {
-            navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
+            const isActive = navOverlay.classList.contains('active');
 
-            // Simple logic for now, ideally toggle a class for animation
-            if (navList.style.display === 'flex') {
-                navList.style.flexDirection = 'column';
-                navList.style.position = 'absolute';
-                navList.style.top = '44px';
-                navList.style.left = '0';
-                navList.style.width = '100%';
-                navList.style.background = 'rgba(255,255,255,0.95)';
-                navList.style.padding = '20px';
-                navList.style.backdropFilter = 'blur(20px)';
+            if (!isActive) {
+                navOverlay.classList.add('active');
+                body.classList.add('nav-open');
+                // Optional: Animate burger to X
+                mobileTrigger.querySelectorAll('span')[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                mobileTrigger.querySelectorAll('span')[1].style.transform = 'rotate(-45deg) translate(5px, -5px)';
             } else {
-                navList.style = ''; // Reset inline styles
+                closeMenu();
             }
         });
+
+        // Close when clicking a link
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        function closeMenu() {
+            navOverlay.classList.remove('active');
+            body.classList.remove('nav-open');
+            // Reset burger
+            mobileTrigger.querySelectorAll('span')[0].style.transform = 'none';
+            mobileTrigger.querySelectorAll('span')[1].style.transform = 'none';
+        }
     }
 
-    // Smooth scroll for anchor links
+    // Smooth Scroll (Native behavior is set in CSS, this is for older browsers fallback or custom logic)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Offset for fixed header
+                const headerOffset = 60;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                // Close mobile menu if open
-                if (window.innerWidth <= 734 && mobileTrigger && navList.style.display === 'flex') {
-                    mobileTrigger.click();
-                }
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
             }
         });
     });
