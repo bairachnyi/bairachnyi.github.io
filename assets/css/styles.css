@@ -348,9 +348,14 @@ p {
     width: 100%;
 }
 
+.grid-item .eyebrow {
+    text-align: center;
+}
+
 .grid-item h3 {
     margin-bottom: var(--space-2);
     font-size: 28px;
+    text-align: center;
 }
 
 .grid-item p,
