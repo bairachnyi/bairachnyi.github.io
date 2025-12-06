@@ -301,6 +301,7 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-3);
+    align-items: start;
 }
 
 .grid-item {
