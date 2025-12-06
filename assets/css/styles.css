@@ -434,6 +434,15 @@ p {
 }
 
 
+
+
+/* Projects Section */
+.section-projects {
+    padding: var(--space-8) var(--space-3);
+    text-align: center;
+    background-color: var(--c-bg-body);
+}
+
 /* Contact */
 .section-contact {
     padding: var(--space-8) var(--space-3);
