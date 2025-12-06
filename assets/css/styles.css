@@ -243,7 +243,7 @@ p {
 
 /* Hero */
 .hero-section {
-    padding: var(--space-8) var(--space-3);
+    padding: var(--space-8) var(--space-3) var(--space-4);
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -257,7 +257,7 @@ p {
     font-size: 20px;
     line-height: 1.4;
     color: var(--c-primary);
-    margin-bottom: var(--space-4);
+    margin-bottom: 0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -291,7 +291,7 @@ p {
 
 /* Grid / Bento */
 .section-grid {
-    padding: var(--space-6) var(--space-3);
+    padding: var(--space-4) var(--space-3) var(--space-6);
     background-color: var(--c-bg-body);
 }
 
