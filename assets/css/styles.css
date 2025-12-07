@@ -660,9 +660,15 @@ p {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 900px) {
     .contact-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact-grid {
+        grid-template-columns: repeat(5, 1fr);
     }
 
     .contact-headline {
@@ -674,11 +680,26 @@ p {
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
     .contact-badge {
         display: none;
     }
 }
+
+/* Ensure equal card heights */
+.contact-card {
+    min-height: 160px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content p {
+    flex-grow: 1;
+}
+
 
 
 /* Footer */
