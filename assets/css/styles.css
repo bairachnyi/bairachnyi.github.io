@@ -464,7 +464,7 @@ p {
     background-image: url('../images/freelance-workspace.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.3;
+    opacity: 0.15;
     z-index: 0;
 }
 
@@ -475,10 +475,10 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/microstock-bg.jpg');
+    background-image: url('../images/microstock-workspace.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.25;
+    opacity: 0.15;
     z-index: 0;
 }
 
